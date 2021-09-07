@@ -9,7 +9,111 @@
 </head>
 <body>
     
+    <div style="width: 100%; display: block;">
+        <div style="width: 33%; display: block;">
+            <form id="ElectrodomesticoOtro">
+                <p><b>Electrodomesticos generales</b></p>
+                <p>
+                    Consumo: 
+                    <select name="consumoEO" id="consumoEO">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                      </select>
+                </p>
+                <p>
+                    Procedencia:
+                    <select name="procedenciaEO" id="procedenciaEO">
+                        <option value="NACIONAL">NACIONAL</option>
+                        <option value="IMPORTADO">IMPORTADO</option>
+                      </select>
+                </p>
+                <p>
+                    Cantidad:
+                    <input type="text" id="cantidadEO" placeholder="Cantidad" />
+                </p>
+                <p>
+                    <input type="submit" value="Submit" id="submitButtonEO" />
+                </p>
+            </form>
+        </div>
+
+        <div style="width: 33%; display: block">
+            <form id="Televisor">
+                <p><b>Televisores</b></p>
+                <p>
+                    Consumo: 
+                    <select name="consumoTV" id="consumoTV">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                      </select>
+                </p>
+                <p>
+                    Procedencia:
+                    <select name="procedenciaTV" id="procedenciaTV">
+                        <option value="NACIONAL">NACIONAL</option>
+                        <option value="IMPORTADO">IMPORTADO</option>
+                      </select>
+                </p>
+                <p>
+                    Tamaño:
+                    <input type="text" id="tamanoTV" placeholder="Tamaño" />
+                </p>
+                <p>
+                    Sincronizador TDT?:
+                    <select name="sincronizadorTV" id="sincronizadorTV">
+                        <option value="true">Si</option>
+                        <option value="false">No</option>
+                      </select>
+                </p>
+                <p>
+                    Cantidad:
+                    <input type="text" id="cantidadTV" placeholder="Cantidad" />
+                </p>
+                <p>
+                    <input type="submit" value="Submit" id="submitButtonTV" />
+                </p>
+            </form>
+        </div>
+
+        <div style="width: 33%;">
+            <form id="Nevera">
+                <p><b>Neveras</b></p>
+                <p>
+                    Consumo: 
+                    <select name="consumoNEV" id="consumoNEV">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                      </select>
+                </p>
+                <p>
+                    Procedencia:
+                    <select name="procedenciaNEV" id="procedenciaNEV">
+                        <option value="NACIONAL">NACIONAL</option>
+                        <option value="IMPORTADO">IMPORTADO</option>
+                      </select>
+                </p>
+                <p>
+                    Capacidad:
+                    <input type="text" id="capacidadNEV" placeholder="Capacidad" />
+                </p>
+                <p>
+                    Cantidad:
+                    <input type="text" id="cantidadNEV" placeholder="Cantidad" />
+                </p>
+                <p>
+                    <input type="submit" value="Submit" id="submitButtonNEV" />
+                </p>
+            </form>
+        </div>
+    </div>
+
+    
+
 </body>
+
 <script type="module" src="js/Electrodomestico.js"></script>
 <script type="module" src="js/Televisor.js"></script>
 <script type="module" src="js/Nevera.js"></script>

@@ -14,7 +14,7 @@ const A = 450000;
 const B = 350000;
 const C = 250000;
 const NACIONAL = 250000;
-const INTERNACIONAL = 350000;
+const IMPORTADO = 350000;
 
 function pedirDatos(){
     
@@ -41,7 +41,7 @@ function pedirDatos(){
         }else if(tieneSincronizadorTDT === 'no'){
             boolSincroTDT = false;
         }
-        let TempTvConsumoCInternacional = new Televisor(C, INTERNACIONAL, +tamano, boolSincroTDT);
+        let TempTvConsumoCInternacional = new Televisor(C, IMPORTADO, +tamano, boolSincroTDT);
         tvConsumoCInternacional.push(TempTvConsumoCInternacional);
     }
 
@@ -55,7 +55,7 @@ function pedirDatos(){
         }else if(tieneSincronizadorTDT === 'no'){
             boolSincroTDT = false;
         }
-        let TempTvConsumoBInternacional = new Televisor(B, INTERNACIONAL, +tamano, boolSincroTDT);
+        let TempTvConsumoBInternacional = new Televisor(B, IMPORTADO, +tamano, boolSincroTDT);
         tvConsumoBInternacional.push(TempTvConsumoBInternacional);
     }
 
@@ -75,14 +75,14 @@ function pedirDatos(){
 
     //8
     for(let i = 1; i <= 1; i++){
-        let TempEGenConsumoAInternacional = new ElectrodomesticoOtro(A, INTERNACIONAL);
+        let TempEGenConsumoAInternacional = new ElectrodomesticoOtro(A, IMPORTADO);
         eGenConsumoAinternacional.push(TempEGenConsumoAInternacional);
     }
 
     //12
     for(let i = 1; i <= 2; i++){
         let capacidad = prompt("Nevera consumo C Internacional #" + i + " - Ingrese la capacidad de la nevera");
-        let TempNeveraConsumoCinternacional = new Nevera(C, INTERNACIONAL, +capacidad);
+        let TempNeveraConsumoCinternacional = new Nevera(C, IMPORTADO, +capacidad);
         neveraConsumoCinternacional.push(TempNeveraConsumoCinternacional);
     }
 
@@ -104,8 +104,144 @@ function calcularFacturas(){
     
 }
 
-pedirDatos();
-calcularFacturas();
+document.getElementById('ElectrodomesticoOtro').onsubmit = function() { 
+    
+    var consumo = document.getElementById('consumoEO').value;
+    var procedencia = document.getElementById('procedenciaEO').value;
+    var cantidad = document.getElementById('cantidadEO').value;
+
+    if(consumo === 'A'){
+        if(procedencia === "NACIONAL"){
+
+        }else{
+            for(let i = 0; i < +cantidad; i++){
+                let TempEGenConsumoAInternacional = new ElectrodomesticoOtro(A, IMPORTADO);
+                eGenConsumoAinternacional.push(TempEGenConsumoAInternacional);
+            }
+        }
+    }else if(consumo === 'B'){
+        if(procedencia === "NACIONAL"){
+            for(let i = 0; i < +cantidad; i++){
+                let TempEGenConsumoBNacional = new ElectrodomesticoOtro(B, NACIONAL);
+                eGenConsumoBNacional.push(TempEGenConsumoBNacional);
+            }
+        }else{
+
+        }
+    }else if(consumo === 'C'){
+        if(procedencia === "NACIONAL"){
+
+        }else{
+
+        }
+    }
+
+    console.log(eGenConsumoAinternacional);
+    console.log(eGenConsumoBNacional);
+    return false;
+};
+
+document.getElementById('Televisor').onsubmit = function() { 
+    
+    var consumo = document.getElementById('consumoTV').value;
+    var procedencia = document.getElementById('procedenciaTV').value;
+    var tamano = document.getElementById('tamanoTV').value;
+    var sincronizadorTV = document.getElementById('sincronizadorTV').value;
+    var cantidad = document.getElementById('cantidadTV').value;
+
+    if(consumo === 'A'){
+        if(procedencia === "NACIONAL"){
+            for(let i = 0; i < +cantidad; i++){
+                let boolSincroTDT = false;
+                if(sincronizadorTV === 'true'){
+                    boolSincroTDT = true;
+                }else if(tieneSincronizadorTDT === 'false'){
+                    boolSincroTDT = false;
+                }
+                let TempTvConsumoAnacional = new Televisor(A, NACIONAL, +tamano, boolSincroTDT);
+                tvConsumoAnacional.push(TempTvConsumoAnacional);
+            }
+        }else{
+            
+        }
+    }else if(consumo === 'B'){
+        if(procedencia === "NACIONAL"){
+            
+        }else{
+            for(let i = 0; i < +cantidad; i++){
+                let boolSincroTDT = false;
+                if(sincronizadorTV === 'true'){
+                    boolSincroTDT = true;
+                }else if(sincronizadorTV === 'false'){
+                    boolSincroTDT = false;
+                }
+                let TempTvConsumoBInternacional = new Televisor(B, IMPORTADO, +tamano, boolSincroTDT);
+                tvConsumoBInternacional.push(TempTvConsumoBInternacional);
+            }
+        }
+    }else if(consumo === 'C'){
+        if(procedencia === "NACIONAL"){
+
+        }else{
+            for(let i = 0; i < +cantidad; i++){
+                let boolSincroTDT = false;
+                if(sincronizadorTV === 'true'){
+                    boolSincroTDT = true;
+                }else if(sincronizadorTV === 'false'){
+                    boolSincroTDT = false;
+                }
+                let TempTvConsumoCInternacional = new Televisor(C, IMPORTADO, +tamano, boolSincroTDT);
+                tvConsumoCInternacional.push(TempTvConsumoCInternacional);
+            }
+        }
+    }
+
+    console.log(tvConsumoAnacional);
+    console.log(tvConsumoBInternacional);
+    console.log(tvConsumoCInternacional);
+    return false;
+};
+
+document.getElementById('Nevera').onsubmit = function() { 
+    
+    var consumo = document.getElementById('consumoNEV').value;
+    var procedencia = document.getElementById('procedenciaNEV').value;
+    var capacidad = document.getElementById('capacidadNEV').value;
+    var cantidad = document.getElementById('cantidadNEV').value;
+
+    if(consumo === 'A'){
+        if(procedencia === "NACIONAL"){
+            for(let i = 0; i < +cantidad; i++){
+                let TempNeveraConsumoANacional = new Nevera(A, NACIONAL, +capacidad);
+                neveraConsumoANacional.push(TempNeveraConsumoANacional);
+            }
+        }else{
+            
+        }
+    }else if(consumo === 'B'){
+        if(procedencia === "NACIONAL"){
+            
+        }else{
+
+        }
+    }else if(consumo === 'C'){
+        if(procedencia === "NACIONAL"){
+
+        }else{
+            for(let i = 0; i < +cantidad; i++){
+                let TempNeveraConsumoCinternacional = new Nevera(C, IMPORTADO, +capacidad);
+                neveraConsumoCinternacional.push(TempNeveraConsumoCinternacional);
+            }
+        }
+    }
+
+    console.log(neveraConsumoANacional);
+    console.log(neveraConsumoCinternacional);
+    return false;
+};
+
+//pedirDatos();
+//calcularFacturas();
 console.log(eGenConsumoBNacional);
 console.log(neveraConsumoANacional);
 console.log(tvConsumoCInternacional);

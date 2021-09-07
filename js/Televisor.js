@@ -10,14 +10,11 @@ class Televisor extends Electrodomestico{
     calcularPrecioFinal(){
         var precio = this.consumo + this.procedencia;
 
-        console.log(precio);
         if(this.tamano > 40){
             precio = precio * 1.3;
-            console.log(precio);
         }
         if(this.tieneSincronizadorTDT){
             precio = precio + 250000;
-            console.log(precio);
         }
 
         return precio;
