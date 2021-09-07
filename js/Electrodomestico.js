@@ -4,7 +4,10 @@ class Electrodomestico {
         this.procedencia = procedencia;
     }
 
-    calcularPrecioFinal(){}
+    calcularPrecioFinal(){
+        var precio = this.consumo + this.procedencia;
+        return precio;
+    }
 }
 
 export default Electrodomestico;
