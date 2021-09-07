@@ -16,78 +16,6 @@ const C = 250000;
 const NACIONAL = 250000;
 const IMPORTADO = 350000;
 
-function pedirDatos(){
-    
-    //5
-    for(let i = 1; i <= 5; i++){
-        let TempEGenConsumoBNacional = new ElectrodomesticoOtro(B, NACIONAL);
-        eGenConsumoBNacional.push(TempEGenConsumoBNacional);
-    }
-
-    //10
-    for(let i = 1; i <= 1; i++){
-        let capacidad = prompt("Nevera consumo A Nacional #" + i + " - Ingrese la capacidad de la nevera");
-        let TempNeveraConsumoANacional = new Nevera(A, NACIONAL, +capacidad);
-        neveraConsumoANacional.push(TempNeveraConsumoANacional);
-    }
-
-    //7
-    for(let i = 1; i <= 1; i++){
-        let tamano = prompt("Televisor consumo C Internacional #" + i + " - Ingrese el tamaño del televisor");
-        let tieneSincronizadorTDT = prompt("Televisor consumo C Internacional  #" + i + " - Tiene sincronizador TDT? Ingrese 'si' o 'no'");
-        var boolSincroTDT = false;
-        if(tieneSincronizadorTDT === 'si'){
-            boolSincroTDT = true;
-        }else if(tieneSincronizadorTDT === 'no'){
-            boolSincroTDT = false;
-        }
-        let TempTvConsumoCInternacional = new Televisor(C, IMPORTADO, +tamano, boolSincroTDT);
-        tvConsumoCInternacional.push(TempTvConsumoCInternacional);
-    }
-
-    //13
-    for(let i = 1; i <= 1; i++){
-        let tamano = prompt("Televisor consumo B Internacional #" + i + " - Ingrese el tamaño del televisor");
-        let tieneSincronizadorTDT = prompt("Televisor consumo B Internacional  #" + i + " - Tiene sincronizador TDT? Ingrese 'si' o 'no'");
-        var boolSincroTDT = false;
-        if(tieneSincronizadorTDT === 'si'){
-            boolSincroTDT = true;
-        }else if(tieneSincronizadorTDT === 'no'){
-            boolSincroTDT = false;
-        }
-        let TempTvConsumoBInternacional = new Televisor(B, IMPORTADO, +tamano, boolSincroTDT);
-        tvConsumoBInternacional.push(TempTvConsumoBInternacional);
-    }
-
-    //3
-    for(let i = 1; i <= 1; i++){
-        let tamano = prompt("Televisor consumo A Nacional #" + i + " - Ingrese el tamaño del televisor");
-        let tieneSincronizadorTDT = prompt("Televisor consumo A Nacional  #" + i + " - Tiene sincronizador TDT? Ingrese 'si' o 'no'");
-        var boolSincroTDT = false;
-        if(tieneSincronizadorTDT === 'si'){
-            boolSincroTDT = true;
-        }else if(tieneSincronizadorTDT === 'no'){
-            boolSincroTDT = false;
-        }
-        let TempTvConsumoAnacional = new Televisor(A, NACIONAL, +tamano, boolSincroTDT);
-        tvConsumoAnacional.push(TempTvConsumoAnacional);
-    }
-
-    //8
-    for(let i = 1; i <= 1; i++){
-        let TempEGenConsumoAInternacional = new ElectrodomesticoOtro(A, IMPORTADO);
-        eGenConsumoAinternacional.push(TempEGenConsumoAInternacional);
-    }
-
-    //12
-    for(let i = 1; i <= 2; i++){
-        let capacidad = prompt("Nevera consumo C Internacional #" + i + " - Ingrese la capacidad de la nevera");
-        let TempNeveraConsumoCinternacional = new Nevera(C, IMPORTADO, +capacidad);
-        neveraConsumoCinternacional.push(TempNeveraConsumoCinternacional);
-    }
-
-}
-
 function calcularFacturas(){
 
     
@@ -95,13 +23,41 @@ function calcularFacturas(){
 
     
     for(let i = 0; i < 2; i++){
-        console.log("Factura de la nevera de consumo C Internacional en la posición " + (+i+(1)) + neveraConsumoCinternacional[i].calcularPrecioFinal());
+        console.log("Factura de la nevera de consumo C Internacional en la posición " + (+i+(1)) + ": " + neveraConsumoCinternacional[i].calcularPrecioFinal());
     }
 
     for(let i = 0; i < 5; i++){
-        console.log("Factura del electrodomestico general de consumo B Nacional en la posición " + (+i+(1)) + eGenConsumoBNacional[i].calcularPrecioFinal());
+        console.log("Factura del electrodomestico general de consumo B Nacional en la posición " + (+i+(1)) + ": " + eGenConsumoBNacional[i].calcularPrecioFinal());
     }
     
+}
+
+function verInventario(){
+
+    console.log("Electrodomesticos generales consumo B Nacional:");
+    console.log(eGenConsumoBNacional);
+    console.log("Neveras generales consumo A Nacional:");
+    console.log(neveraConsumoANacional);
+    console.log("Televisores consumo C Internacional:");
+    console.log(tvConsumoCInternacional);
+    console.log("Televisores consumo B Internacional:");
+    console.log(tvConsumoBInternacional);
+    console.log("Televisores consumo A Nacional:");
+    console.log(tvConsumoAnacional);
+    console.log("Electrodomesticos generales consumo A Internacional:");
+    console.log(eGenConsumoAinternacional);
+    console.log("Neveras consumo C Internacional:");
+    console.log(neveraConsumoCinternacional);
+}
+
+document.getElementById('Facturas').onsubmit = function() { 
+    calcularFacturas();
+    return false;
+}
+
+document.getElementById('VerInventario').onsubmit = function() { 
+    verInventario();
+    return false;
 }
 
 document.getElementById('ElectrodomesticoOtro').onsubmit = function() { 
@@ -242,10 +198,10 @@ document.getElementById('Nevera').onsubmit = function() {
 
 //pedirDatos();
 //calcularFacturas();
-console.log(eGenConsumoBNacional);
-console.log(neveraConsumoANacional);
-console.log(tvConsumoCInternacional);
-console.log(tvConsumoBInternacional);
-console.log(tvConsumoAnacional);
-console.log(eGenConsumoAinternacional);
-console.log(neveraConsumoCinternacional);
+//console.log(eGenConsumoBNacional);
+//console.log(neveraConsumoANacional);
+//console.log(tvConsumoCInternacional);
+//console.log(tvConsumoBInternacional);
+//console.log(tvConsumoAnacional);
+//console.log(eGenConsumoAinternacional);
+//console.log(neveraConsumoCinternacional);

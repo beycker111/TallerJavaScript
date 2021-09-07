@@ -9,8 +9,12 @@
 </head>
 <body>
     
-    <div style="width: 100%; display: block;">
-        <div style="width: 33%; display: block;">
+    <div>
+        <p align="center" style="font-size: 24px;">Sistema de inventario y precios de electrodomesticos <b>Los resultados se muestran por consola</b></p>
+    </div>
+
+    <div style="width: 100%;">
+        <div style="width: 33%; display: inline-block;">
             <form id="ElectrodomesticoOtro">
                 <p><b>Electrodomesticos generales</b></p>
                 <p>
@@ -33,12 +37,12 @@
                     <input type="text" id="cantidadEO" placeholder="Cantidad" />
                 </p>
                 <p>
-                    <input type="submit" value="Submit" id="submitButtonEO" />
+                    <input type="submit" value="Agregar elec. generales al inventario" id="submitButtonEO" />
                 </p>
             </form>
         </div>
 
-        <div style="width: 33%; display: block">
+        <div style="width: 33%; display: inline-block;">
             <form id="Televisor">
                 <p><b>Televisores</b></p>
                 <p>
@@ -72,12 +76,12 @@
                     <input type="text" id="cantidadTV" placeholder="Cantidad" />
                 </p>
                 <p>
-                    <input type="submit" value="Submit" id="submitButtonTV" />
+                    <input type="submit" value="Agregar televisores al inventario" id="submitButtonTV" />
                 </p>
             </form>
         </div>
 
-        <div style="width: 33%;">
+        <div style="width: 33%; display: inline-block;">
             <form id="Nevera">
                 <p><b>Neveras</b></p>
                 <p>
@@ -104,11 +108,23 @@
                     <input type="text" id="cantidadNEV" placeholder="Cantidad" />
                 </p>
                 <p>
-                    <input type="submit" value="Submit" id="submitButtonNEV" />
+                    <input type="submit" value="Agregar neveras al inventario" id="submitButtonNEV" />
                 </p>
             </form>
         </div>
     </div>
+
+    <form id="Facturas">
+        <p align="center">
+            <input type="submit" value="Factura punto 3 (por consola)" id="submitCalcularFacturas" />
+        </p>
+    </form>
+
+    <form id="VerInventario">
+        <p align="center">
+            <input type="submit" value="Ver inventario (por consola)" id="submitVerInventario" />
+        </p>
+    </form>
 
     
 
